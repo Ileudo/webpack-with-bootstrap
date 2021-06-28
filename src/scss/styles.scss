@@ -1,38 +1,31 @@
-@import './custom.scss';
-@import 'bootstrap/';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'offcanvas';
+@import 'card';
+@import 'grid';
+@import 'card-category';
+
+$blue-500: #0d6efd;
+$gray-500: #adb5bd;
+$gray-700: #495057;
+$indigo-500: #6610f2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 ul {
   list-style-type: none;
 }
-.offcanvas1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-
-  // max-width: 100%;
-  width: 400px;
-  height: 100vh;
-  // visibility: hidden;
-  background: linear-gradient(40deg, #00bf82, #0099ae);
-  background-clip: padding-box;
-  outline: 0;
-  transition: transform 0.3s ease-in-out;
-  &__body {
-  }
-  &__list {
-  }
-  &__link {
-    font-family: Roboto, sans-serif;
-    padding: 10px;
-    color: #fff;
-    min-width: 145px;
-    text-align: left;
-  }
+a {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
 }
 
-.card {
-  width: 100%;
+img,
+svg {
+  vertical-align: middle;
 }
 
 .testimonial-card .card-up {
@@ -48,10 +41,6 @@ ul {
   overflow: hidden;
   border: 5px solid #fff;
   border-radius: 50%;
-}
-
-.bg-indigo {
-  background-color: $indigo !important;
 }
 
 .blue-gradient {

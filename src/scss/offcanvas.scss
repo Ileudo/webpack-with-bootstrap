@@ -1,0 +1,40 @@
+.offcanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1050;
+  max-width: 100%;
+  width: 400px;
+
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
+  background: linear-gradient(40deg, #00bf82, #0099ae);
+  transition: transform 0.3s;
+
+  &.offcanvas-hidden {
+    transform: translateX(-100%);
+  }
+  &.offcanvas-show {
+    transform: translateX(0%);
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &__link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    transition: color 0.3s;
+    background-clip: padding-box;
+  }
+  &__link:hover {
+    color: darken(#fff, 20%);
+  }
+}
