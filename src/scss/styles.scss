@@ -1,36 +1,17 @@
-@import './custom.scss';
-@import 'bootstrap/';
+@import 'null.scss';
+@import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
-ul {
-  list-style-type: none;
-}
-.offcanvas1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
+@import 'offcanvas';
+@import 'close-icon';
+@import 'custom.scss';
+@import 'toggle-icon.scss';
 
-  // max-width: 100%;
-  width: 400px;
-  height: 100vh;
-  // visibility: hidden;
-  background: linear-gradient(40deg, #00bf82, #0099ae);
-  background-clip: padding-box;
-  outline: 0;
-  transition: transform 0.3s ease-in-out;
-  &__body {
-  }
-  &__list {
-  }
-  &__link {
-    font-family: Roboto, sans-serif;
-    padding: 10px;
-    color: #fff;
-    min-width: 145px;
-    text-align: left;
-  }
+body {
+  line-height: 1.25em;
 }
-
+.header {
+  padding: 2em;
+}
 .card {
   width: 100%;
 }
@@ -55,13 +36,13 @@ ul {
 }
 
 .blue-gradient {
-  background: linear-gradient(40deg, $blue-500, $gray-700);
-  background-image: linear-gradient(40deg, $blue-500, $gray-700);
+  background: linear-gradient(40deg, $blue-500, $blue-700);
+  background-image: linear-gradient(40deg, $blue-500, $blue-700);
 }
 
-.gray-gradient {
-  background: linear-gradient(40deg, $gray-500, $gray-700);
-  background-image: linear-gradient(40deg, $gray-500, $gray-700);
+.orange-gradient {
+  background: linear-gradient(40deg, $orange-500, $orange-700);
+  background-image: linear-gradient(40deg, $orange-500, $orange-700);
 }
 
 .indigo-gradient {

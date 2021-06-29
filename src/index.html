@@ -6,27 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>webpack-bootstrap</title>
   </head>
-  <body>
-    <header>
-      <div class="container-lg">
+  <body class="body">
+    <header class="header">
+      <div class="container-fluid">
+        <button id="close-icon" type="button" class="close-icon" aria-label="Close">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+        <label class="rocker">
+          <input type="checkbox" checked>
+          <span class="switch-left">Play</span>
+          <span class="switch-right">Train</span>
+        </label>
     </header>
-    <button class="btn-close">&times;</button>
-    <aside class="offcanvas">
-      <div class="offcanvas__body">
-        <ul class="offcanvas__list">
-          <li><a href="#" class="offcanvas__link">Main Page</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-          <li><a href="#cards" class="offcanvas__link">Section</a></li>
-        </ul>
-      </div>
-    </aside>
+  <aside class="offcanvas offcanvas-start green-gradient" id="offcanvas">
+    <ul class="offcanvas__list">
+      <li><a href="#" class="offcanvas__link">Main Page</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+      <li><a href="#cards" class="offcanvas__link">Section</a></li>
+    </ul>
+  </aside>
     <section class="info text-center my-5 p-1">
       <div class="container-xl">
         <h2 class="h1-responsive font-weight-bold my-5">Testimonials</h2>
@@ -37,12 +44,10 @@
       </section>
       <section class="categories text-center my-5 p-1">
         <div class="container-xl">
-        <!-- Grid row -->
         <div class="row">
-          <!--Grid column-->
           <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card testimonial-card">
-              <div class="card-up blue-gradient"></div>
+              <div class="card-up green-gradient"></div>
               <div class="avatar mx-auto white">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -51,10 +56,9 @@
               </div>
             </div>
           </div>
-          <!--Grid column-->
           <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card testimonial-card">
-              <div class="card-up gray-gradient"></div>
+              <div class="card-up green-gradient"></div>
               <div class="avatar mx-auto white">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -63,10 +67,9 @@
               </div>
             </div>
           </div>
-          <!--Grid column-->
           <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card testimonial-card">
-              <div class="card-up indigo-gradient"></div>
+              <div class="card-up green-gradient"></div>
               <div class="avatar mx-auto white">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -75,10 +78,9 @@
               </div>
             </div>
           </div>
-          <!--Grid column-->
           <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card testimonial-card">
-              <div class="card-up blue-gradient"></div>
+              <div class="card-up green-gradient"></div>
               <div class="avatar mx-auto white">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -87,10 +89,9 @@
               </div>
             </div>
           </div>
-          <!--Grid column-->
           <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card testimonial-card">
-              <div class="card-up gray-gradient"></div>
+              <div class="card-up green-gradient"></div>
               <div class="avatar mx-auto white">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -99,46 +100,9 @@
               </div>
             </div>
           </div>
-          <!--Grid column-->
           <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card testimonial-card">
-              <div class="card-up indigo-gradient"></div>
-              <div class="avatar mx-auto white">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="rounded-circle img-fluid" />
-              </div>
-              <div class="card-body">
-                <h4 class="display-6 mb-4">Maria Kate</h4>
-              </div>
-            </div>
-          </div>
-          <!--Grid column-->
-          <div class="col-xl-4 col-sm-6 mb-4">
-            <div class="card testimonial-card">
-              <div class="card-up blue-gradient"></div>
-              <div class="avatar mx-auto white">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
-              </div>
-              <div class="card-body">
-                <h4 class="display-6 mb-4">John Doe</h4>
-              </div>
-            </div>
-          </div>
-          <!--Grid column-->
-          <div class="col-xl-4 col-sm-6 mb-4">
-            <div class="card testimonial-card">
-              <div class="card-up gray-gradient"></div>
-              <div class="avatar mx-auto white">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid" />
-              </div>
-              <div class="card-body">
-                <h4 class="display-6 mb-4">Anna Aston</h4>
-              </div>
-            </div>
-          </div>
-          <!--Grid column-->
-          <div class="col-xl-4 col-sm-6 mb-4">
-            <div class="card testimonial-card">
-              <div class="card-up indigo-gradient"></div>
+              <div class="card-up green-gradient"></div>
               <div class="avatar mx-auto white">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -152,109 +116,69 @@
     </section>
     <section class="category text-center my-5 p-1">
       <div class="container-xl">
-      <!-- Grid row -->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-          <div class="card card-guess">
-            <span class="bi bi-music-note px-2 bg-dark"></span>
-            <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text display-6">Some quick</p>
-            </div>
-          </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card card-guess">
-                <span class="bi bi-music-note px-2 bg-dark"></span>
-                <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text display-6">Some quick</p>
-                </div>
+        <div class="row">
+          <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card card-guess">
+              <span class="bi bi-music-note px-2 bg-dark"></span>
+              <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text display-6">Some quick</p>
               </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-          <div class="card card-guess">
-            <span class="bi bi-music-note px-2 bg-dark"></span>
-            <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text display-6">Some quick</p>
             </div>
           </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-          <div class="card card-guess">
-            <span class="bi bi-music-note px-2 bg-dark"></span>
-            <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text display-6">Some quick</p>
-            </div>
-          </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card card-guess">
-                <span class="bi bi-music-note px-2 bg-dark"></span>
-                <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text display-6">Some quick</p>
+          <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card card-guess">
+                  <span class="bi bi-music-note px-2 bg-dark"></span>
+                  <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text display-6">Some quick</p>
+                  </div>
                 </div>
+          </div>
+          <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card card-guess">
+              <span class="bi bi-music-note px-2 bg-dark"></span>
+              <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text display-6">Some quick</p>
               </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-          <div class="card card-guess">
-            <span class="bi bi-music-note px-2 bg-dark"></span>
-            <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text display-6">Some quick</p>
             </div>
           </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-          <div class="card card-guess">
-            <span class="bi bi-music-note px-2 bg-dark"></span>
-            <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text display-6">Some quick</p>
+          <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card card-guess">
+              <span class="bi bi-music-note px-2 bg-dark"></span>
+              <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text display-6">Some quick</p>
+              </div>
             </div>
           </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card card-guess">
-                <span class="bi bi-music-note px-2 bg-dark"></span>
-                <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text display-6">Some quick</p>
+          <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card card-guess">
+                  <span class="bi bi-music-note px-2 bg-dark"></span>
+                  <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text display-6">Some quick</p>
+                  </div>
                 </div>
+          </div>
+          <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card card-guess">
+              <span class="bi bi-music-note px-2 bg-dark"></span>
+              <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text display-6">Some quick</p>
               </div>
-        </div>
-        <!--Grid column-->
-        <div class="col-xl-4 col-md-6 mb-4">
-          <div class="card card-guess">
-            <span class="bi bi-music-note px-2 bg-dark"></span>
-            <span class="bi bi-arrow-repeat px-2 bg-dark"></span>
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text display-6">Some quick</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </body>
 </html>

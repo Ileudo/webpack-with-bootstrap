@@ -1,0 +1,46 @@
+@import 'custom.scss';
+ul {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+.offcanvas {
+  transition: all 0.3s;
+}
+
+.offcanvas__list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3em 0;
+  overflow-y: auto;
+}
+.offcanvas.show {
+  visibility: visible;
+}
+.offcanvas__list > li {
+  text-align: center;
+  padding: 0.5em 1em;
+}
+
+.offcanvas__list > li:hover {
+  background: $green-gradient-darker;
+  cursor: pointer;
+}
+
+.offcanvas__link {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: #fff;
+}
+
+.offcanvas__link:hover {
+  color: #fff;
+}

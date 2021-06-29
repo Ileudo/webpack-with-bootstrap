@@ -1,1 +1,9 @@
-
+$green-gradient: linear-gradient(40deg, #00bf82, #0099ae);
+$green-gradient-darker: linear-gradient(40deg, darken(#00bf82, 10%), darken(#0099ae, 10%));
+$orange-gradient: linear-gradient(40deg, #ffd86f, #fc6262);
+.green-gradient {
+  background: linear-gradient(40deg, #00bf82, #0099ae);
+}
+.orange-gradient {
+  background: linear-gradient(40deg, #ffd86f, #fc6262);
+}
