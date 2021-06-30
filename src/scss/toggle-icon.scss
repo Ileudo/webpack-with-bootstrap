@@ -1,21 +1,16 @@
 @import 'custom.scss';
+// https://codepen.io/marcusconnor/pen/QJNvMa
 
 .rocker {
   display: inline-block;
   position: relative;
-  /*
-  SIZE OF SWITCH
-  ==============
-  All sizes are in em - therefore
-  changing the font-size here
-  will change the size of the switch.
-  */
   font-size: 1em;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  color: #888;
-  width: 7em;
+  color: #fff;
+  width: 8em; //7em
+  min-width: 8rem;
   height: 4em;
   overflow: hidden;
   border-bottom: 0.5em solid #eee;
@@ -48,13 +43,13 @@
   align-items: center;
   justify-content: center;
   height: 2.5em;
-  width: 3em;
+  width: 3.5em; //3em
   transition: 0.2s;
 }
 
 .switch-left {
   height: 2.4em;
-  width: 2.75em;
+  width: 3.25em; //2.75em
   left: 0.85em;
   bottom: 0.4em;
   background: $orange-gradient;
@@ -95,7 +90,7 @@ input:checked + .switch-left {
   bottom: 0px;
   left: 0.5em;
   height: 2.5em;
-  width: 3em;
+  width: 3.5em; //3em
   transform: rotate(0deg) skewX(0deg);
 }
 
@@ -106,11 +101,11 @@ input:checked + .switch-left::before {
 
 input:checked + .switch-left + .switch-right {
   background-color: #ddd;
-  color: #888;
+  color: #fff;
   bottom: 0.4em;
   right: 0.8em;
   height: 2.4em;
-  width: 2.75em;
+  width: 3.25em; //2.75em
   transform: rotate(-15deg) skewX(-15deg);
 }
 
@@ -120,7 +115,7 @@ input:checked + .switch-left + .switch-right::before {
 
 /* Keyboard Users */
 input:focus + .switch-left {
-  color: #333;
+  color: #eee;
 }
 
 input:checked:focus + .switch-left {
@@ -132,5 +127,5 @@ input:focus + .switch-left + .switch-right {
 }
 
 input:checked:focus + .switch-left + .switch-right {
-  color: #333;
+  color: #eee;
 }

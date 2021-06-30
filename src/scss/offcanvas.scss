@@ -10,7 +10,29 @@ a:focus {
   outline: none;
 }
 .offcanvas {
+  position: fixed;
+  bottom: 0;
+  z-index: 1050;
+  max-width: 100%;
+  color: #fff;
+  visibility: hidden;
+  // background-color: $green-gradient;
+  background-clip: padding-box;
+  outline: 0;
   transition: all 0.3s;
+}
+
+.offcanvas.show {
+  visibility: visible;
+  transform: none;
+}
+
+.offcanvas-start {
+  top: 0;
+  left: 0;
+  width: 400px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
 }
 
 .offcanvas__list {
@@ -21,17 +43,32 @@ a:focus {
   padding: 3em 0;
   overflow-y: auto;
 }
-.offcanvas.show {
-  visibility: visible;
-}
+
 .offcanvas__list > li {
   text-align: center;
   padding: 0.5em 1em;
 }
 
-.offcanvas__list > li:hover {
+.offcanvas__list > li.theme-green {
+  background: transparent;
+}
+.offcanvas__list > li.theme-green:hover {
   background: $green-gradient-darker;
   cursor: pointer;
+}
+.offcanvas__list > li.theme-green:active {
+  background: $green-gradient-darker-reverse;
+}
+
+.offcanvas__list > li.theme-orange {
+  background: transparent;
+}
+.offcanvas__list > li.theme-orange:hover {
+  background: $orange-gradient-darker;
+  cursor: pointer;
+}
+.offcanvas__list > li.theme-orange:active {
+  background: $orange-gradient-darker-reverse;
 }
 
 .offcanvas__link {
@@ -39,8 +76,5 @@ a:focus {
   font-weight: 400;
   line-height: 1.5em;
   color: #fff;
-}
-
-.offcanvas__link:hover {
-  color: #fff;
+  user-select: none;
 }

@@ -1,10 +1,13 @@
 @import 'null.scss';
-@import 'bootstrap/scss/bootstrap';
+// @import 'bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap-grid.scss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import 'offcanvas';
 @import 'close-icon';
 @import 'custom.scss';
 @import 'toggle-icon.scss';
+@import 'category-card.scss';
+@import 'categories-card';
 
 body {
   line-height: 1.25em;
@@ -12,23 +15,11 @@ body {
 .header {
   padding: 2em;
 }
-.card {
-  width: 100%;
-}
 
-.testimonial-card .card-up {
-  height: 120px;
-  overflow: hidden;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-
-.testimonial-card .avatar {
-  width: 120px;
-  margin-top: -60px;
-  overflow: hidden;
-  border: 5px solid #fff;
-  border-radius: 50%;
+.header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bg-indigo {
@@ -48,23 +39,4 @@ body {
 .indigo-gradient {
   background: linear-gradient(40deg, $indigo-500, $gray-700);
   background-image: linear-gradient(40deg, $indigo-500, $gray-700);
-}
-
-.card-guess {
-  position: relative;
-}
-.bi-arrow-repeat {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 2rem;
-  color: white;
-}
-
-.bi-music-note {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 2rem;
-  color: white;
 }
