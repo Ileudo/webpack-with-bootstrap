@@ -17,6 +17,8 @@ import './assets/audio/Action1/fly.mp3';
 import './assets/audio/Action1/hug.mp3';
 import './assets/audio/Action1/jump.mp3';
 
+import './ts/toggler.ts';
+
 console.log('App is working');
 
 function addToggleListener(buttonClass: string, targetClass: string, togglingClass: string) {
@@ -55,31 +57,20 @@ function closeOnCoverClickListener(coverClass: string, targetClass: string, togg
   });
 }
 
-function switchTheme(e: Event): void {
-  if (e.target instanceof HTMLInputElement) {
-    const themes = { green: 'theme-green', orange: 'theme-orange' };
-    console.log(`[${themes.green}]`);
-
-    if (e.target.checked) {
-      document.querySelectorAll(`.${themes.green}`).forEach((el) => {
-        el.classList.remove(themes.green);
-        el.classList.add(themes.orange);
-      });
-    } else {
-      document.querySelectorAll(`.${themes.orange}`).forEach((el) => {
-        el.classList.remove(themes.orange);
-        el.classList.add(themes.green);
-      });
-    }
-  }
-}
-
-const toggler = document.querySelector('#rocker input') as HTMLInputElement;
-toggler.addEventListener('change', switchTheme);
-
 //Flipping
 const categoryCards = document.querySelectorAll('.category__card');
 let isFlipped = false;
+
+categoryCards.forEach((card) => {
+  card.addEventListener('click', flip);
+  card.addEventListener('click', playAudio);
+  card.addEventListener('mouseleave', flipBack);
+  card.addEventListener('mouseover', (e) => {
+    if (e.target instanceof HTMLElement) {
+      // if(!e.target.classList.contains('.bi-arrow-repeat'))
+    }
+  });
+});
 
 function flip(e: Event) {
   if (
@@ -89,8 +80,7 @@ function flip(e: Event) {
   ) {
     console.log(e.currentTarget);
     e.currentTarget.classList.add('flipped');
-    const cardContent = e.currentTarget.querySelector('.category__card-content') as HTMLDivElement;
-    cardContent.addEventListener('transitionend', () => {
+    e.currentTarget.addEventListener('transitionend', () => {
       isFlipped = true;
     });
   }
@@ -115,13 +105,3 @@ function playAudio(e: Event) {
     audio.play();
   }
 }
-categoryCards.forEach((card) => {
-  card.addEventListener('click', flip);
-  card.addEventListener('click', playAudio);
-  card.addEventListener('mouseleave', flipBack);
-  card.addEventListener('mouseover', (e) => {
-    if (e.target instanceof HTMLElement) {
-      // if(!e.target.classList.contains('.bi-arrow-repeat'))
-    }
-  });
-});

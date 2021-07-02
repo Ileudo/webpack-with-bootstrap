@@ -19,3 +19,16 @@ svg {
   max-width: 100%;
   vertical-align: middle;
 }
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
