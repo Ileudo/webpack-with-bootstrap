@@ -7,7 +7,7 @@
     <title>webpack-bootstrap</title>
   </head>
   <body class="body">
-    <header class="header">
+    <!-- <header class="header">
       <div class="container-xxl">
         <div class="header__row">
           <button id="close-icon" type="button" class="close-icon" aria-label="Close">
@@ -23,17 +23,17 @@
         </div>
       </div>
     </header>
-    <aside class="offcanvas offcanvas-start theme-train" data-theme="theme-train" id="offcanvas">
+    <aside class="offcanvas offcanvas-start mode-train" data-mode="mode-train" id="offcanvas">
       <ul class="offcanvas__list">
-        <li class="theme-green"><a href="#" class="offcanvas__link">Main Page</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
-        <li class="theme-green"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#" class="offcanvas__link">Main Page</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
+        <li class="mode-train"><a href="#cards" class="offcanvas__link">Section</a></li>
       </ul>
     </aside>
     <section class="categories">
@@ -41,7 +41,7 @@
         <div class="row categories__row">
           <div class="col-sm-6 col-lg-4 col-xl-3">
             <a class="categories__card">
-              <div class="categories__card-up theme-train" data-theme="theme-train"></div>
+              <div class="categories__card-up mode-train" data-mode="mode-train"></div>
               <div class="categories__card-avatar">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -52,7 +52,7 @@
           </div>
           <div class="col-sm-6 col-lg-4 col-xl-3">
             <a class="categories__card">
-              <div class="categories__card-up theme-train" data-theme="theme-train"></div>
+              <div class="categories__card-up mode-train" data-mode="mode-train"></div>
               <div class="categories__card-avatar">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -63,7 +63,7 @@
           </div>
           <div class="col-sm-6 col-lg-4 col-xl-3">
             <a class="categories__card">
-              <div class="categories__card-up theme-train" data-theme="theme-train"></div>
+              <div class="categories__card-up mode-train" data-mode="mode-train"></div>
               <div class="categories__card-avatar">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -74,7 +74,7 @@
           </div>
           <div class="col-sm-6 col-lg-4 col-xl-3">
             <a class="categories__card">
-              <div class="categories__card-up theme-train" data-theme="theme-train"></div>
+              <div class="categories__card-up mode-train" data-mode="mode-train"></div>
               <div class="categories__card-avatar">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -85,7 +85,7 @@
           </div>
           <div class="col-sm-6 col-lg-4 col-xl-3">
             <a class="categories__card">
-              <div class="categories__card-up theme-train" data-theme="theme-train"></div>
+              <div class="categories__card-up mode-train" data-mode="mode-train"></div>
               <div class="categories__card-avatar">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -96,7 +96,7 @@
           </div>
           <div class="col-sm-6 col-lg-4 col-xl-3">
             <a class="categories__card">
-              <div class="categories__card-up theme-train" data-theme="theme-train"></div>
+              <div class="categories__card-up mode-train" data-mode="mode-train"></div>
               <div class="categories__card-avatar">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid" />
               </div>
@@ -118,8 +118,8 @@
           <span class="bi bi-star"></span>
         </div>
         <div class="row category__row">
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -139,10 +139,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/cry.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -162,10 +162,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/dance.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -185,10 +185,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/dive.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -208,10 +208,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/draw.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -231,10 +231,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/fish.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -254,10 +254,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/fly.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -277,10 +277,10 @@
                 </div>
               </div>
               <audio src="./assets/audio/hug.mp3"></audio>
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3">
-            <a class="category__card">
+            </div>
+          </a>
+          <a class="category__card col-sm-6 col-lg-4 col-xl-3">
+            <div class="category__card-content">
               <div class="category__card-back">
                 <span class="bi bi-music-note-beamed"></span>
                 <div class="category__image-wrapper">
@@ -300,16 +300,16 @@
                 </div>
               </div>
               <audio src="./assets/audio/jump.mp3"></audio>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
         <div class="category__controls">
-          <button class="btn btn-lg btn-orange-gradient category__btn theme-train" data-theme="theme-train">
+          <button class="btn btn-lg btn-orange-gradient category__btn mode-train" data-mode="mode-train">
             Start New Game
           </button>
           <span class="bi bi-arrow-clockwise"></span>
         </div>
       </div>
-    </section>
+    </section> -->
   </body>
 </html>

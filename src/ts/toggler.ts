@@ -1,28 +1,28 @@
 import { store } from '../store';
 
-const themes = { green: 'theme-train', orange: 'theme-play' };
+const modes = { train: 'mode-train', play: 'mode-play' };
 const toggler = document.querySelector('#rocker input') as HTMLInputElement;
 toggler.addEventListener('change', changeThemeSettings);
 
 function changeThemeSettings(e: Event) {
   if (e.currentTarget instanceof HTMLInputElement) {
     if (e.currentTarget.checked) {
-      store.theme = themes.orange;
+      store.mode = modes.play;
     } else {
-      store.theme = themes.green;
+      store.mode = modes.train;
     }
   }
   applyThemeSettings();
 }
 
 function applyThemeSettings(): void {
-  document.querySelectorAll(`[data-theme]`).forEach((el) => {
+  document.querySelectorAll(`[data-mode]`).forEach((el) => {
     if (el instanceof HTMLElement) {
-      const prevTheme = el.dataset.theme as string;
-      const nextTheme = store.theme;
+      const prevTheme = el.dataset.mode as string;
+      const nextTheme = store.mode;
       el.classList.remove(prevTheme);
       el.classList.add(nextTheme);
-      el.dataset.theme = nextTheme;
+      el.dataset.mode = nextTheme;
     }
   });
 }

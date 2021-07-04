@@ -1,3 +1,4 @@
 export const store = {
-  theme: 'theme-train',
+  mode: 'mode-train',
+  category: 'Action1',
 };
