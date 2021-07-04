@@ -11,9 +11,14 @@ export interface ICategory {
 }
 
 export interface ICard {
-  cardContainer: HTMLElement;
+  element: HTMLElement;
   card: HTMLElement;
-  render(): ICard;
+  en: string;
+  ru: string;
+  img: string;
+  audio: string;
+  isFlipped: boolean;
+  subscribe(): ICard;
 }
 
 export interface ICardData {
@@ -23,14 +28,32 @@ export interface ICardData {
   audio: string;
 }
 
+export interface IToggler {
+  element: HTMLElement;
+  subscribe(): IToggler;
+  changeThemeSettings(e: Event): void;
+  applyThemeSettings(): IToggler;
+}
+
 export interface ICardsField {
   element: HTMLElement;
-  categoryData: ICategory;
-  cards: HTMLElement[];
-  render(): HTMLElement;
+  cards: ICard[];
+  categoryRow: HTMLElement;
+  setCards(): ICardsField;
+  addCards(): ICardsField;
+}
+
+export interface ICloseIcon {
+  element: HTMLElement;
+  subscribe(): ICloseIcon;
+  addToggleCloseIconListener(e: Event): void;
+  addToggleOffcanvasListener(e: Event): void;
+}
+
+export interface IOffcanvas {
+  element: HTMLElement;
 }
 
 export interface IHeader {
   element: HTMLElement;
-  render(): HTMLElement;
 }

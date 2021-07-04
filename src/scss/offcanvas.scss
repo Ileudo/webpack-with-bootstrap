@@ -1,14 +1,5 @@
 @import 'custom.scss';
-ul {
-  padding: 0;
-  margin: 0;
-}
-a {
-  text-decoration: none;
-}
-a:focus {
-  outline: none;
-}
+
 .offcanvas {
   position: fixed;
   bottom: 0;
@@ -16,7 +7,6 @@ a:focus {
   max-width: 100%;
   color: #fff;
   visibility: hidden;
-  // background-color: $green-gradient;
   background-clip: padding-box;
   outline: 0;
   transition: all 0.3s;
@@ -49,25 +39,23 @@ a:focus {
   padding: 0.5em 1em;
 }
 
-.offcanvas__list > li.theme-green {
+.offcanvas__list > li.mode-train,
+.offcanvas__list > li.mode-play {
   background: transparent;
 }
-.offcanvas__list > li.theme-green:hover {
+.offcanvas__list > li.mode-train:hover {
   background: $green-gradient-darker;
   cursor: pointer;
 }
-.offcanvas__list > li.theme-green:active {
+.offcanvas__list > li.mode-train:active {
   background: $green-gradient-darker-reverse;
 }
 
-.offcanvas__list > li.theme-orange {
-  background: transparent;
-}
-.offcanvas__list > li.theme-orange:hover {
+.offcanvas__list > li.mode-play:hover {
   background: $orange-gradient-darker;
   cursor: pointer;
 }
-.offcanvas__list > li.theme-orange:active {
+.offcanvas__list > li.mode-play:active {
   background: $orange-gradient-darker-reverse;
 }
 

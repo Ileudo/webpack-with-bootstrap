@@ -1,7 +1,7 @@
 @import 'custom.scss';
 // https://codepen.io/marcusconnor/pen/QJNvMa
 
-.rocker {
+.toggler {
   display: inline-block;
   position: relative;
   font-size: 1em;
@@ -17,7 +17,7 @@
   user-select: none;
 }
 
-.rocker::before {
+.toggler::before {
   content: '';
   position: absolute;
   top: 0.5em;
@@ -29,7 +29,7 @@
   border-bottom: 0;
 }
 
-.rocker input {
+.toggler input {
   opacity: 0;
   width: 0;
   height: 0;

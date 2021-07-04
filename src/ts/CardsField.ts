@@ -1,24 +1,17 @@
 import data from '../data.json';
 import { store } from '../store';
-import { ICardData, ICategory } from '../utils/interfaces/interfaces';
+import { ICard, ICardData, ICardsField, ICategory } from '../utils/interfaces/interfaces';
 import { Card } from './Card';
 
 export class CardsField {
   element: HTMLElement;
-  categoryData: ICategory;
-  cards: HTMLElement[];
+  cards: ICard[] = [];
+  categoryRow: HTMLElement;
 
   constructor() {
     this.element = document.createElement('section');
     this.element.classList.add('category');
 
-    this.categoryData = data.categories.find((category: ICategory) => category.name === store.category);
-    this.cards = this.categoryData.cards.map((cardData: ICardData) => {
-      return new Card(cardData).render();
-    });
-  }
-
-  render() {
     this.element.innerHTML = `
     <div class="container-xxl">
       <div class="category__stars">
@@ -34,10 +27,20 @@ export class CardsField {
       </div>
     </div>
     `;
-    const row = this.element.querySelector('.category__row') as HTMLDivElement;
+
+    this.categoryRow = this.element.querySelector('.category__row') as HTMLDivElement;
+  }
+
+  setCards(): ICardsField {
+    const categoryData = data.categories.find((category: ICategory) => category.name === store.category);
+    this.cards = categoryData.cards.map((cardData: ICardData) => new Card(cardData).subscribe());
+    return this;
+  }
+
+  addCards(): ICardsField {
     this.cards.map((card) => {
-      row.append(card);
+      this.categoryRow.append(card.element);
     });
-    return this.element;
+    return this;
   }
 }

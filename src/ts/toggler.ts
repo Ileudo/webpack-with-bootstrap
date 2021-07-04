@@ -1,28 +1,56 @@
+import '../scss/toggle-icon.scss';
 import { store } from '../store';
+import { IToggler } from '../utils/interfaces/interfaces';
 
-const modes = { train: 'mode-train', play: 'mode-play' };
-const toggler = document.querySelector('#rocker input') as HTMLInputElement;
-toggler.addEventListener('change', changeThemeSettings);
+export class Toggler {
+  element: HTMLLabelElement;
+  input: HTMLInputElement;
 
-function changeThemeSettings(e: Event) {
-  if (e.currentTarget instanceof HTMLInputElement) {
-    if (e.currentTarget.checked) {
-      store.mode = modes.play;
-    } else {
-      store.mode = modes.train;
+  constructor() {
+    this.element = document.createElement('label');
+    this.element.classList.add('toggler');
+
+    this.input = document.createElement('input');
+    this.input.setAttribute('type', 'checkbox');
+    this.element.append(this.input);
+
+    this.element.insertAdjacentHTML(
+      'beforeend',
+      `
+    <span class="switch-left">Play</span>
+    <span class="switch-right">Train</span>`
+    );
+  }
+
+  subscribe(): IToggler {
+    this.input.addEventListener('change', this.changeThemeSettings);
+    return this;
+  }
+
+  changeThemeSettings(e: Event): void {
+    console.log(e.currentTarget);
+    if (e.currentTarget instanceof HTMLInputElement) {
+      if (e.currentTarget.checked) {
+        store.mode = store.modes.play;
+      } else {
+        store.mode = store.modes.train;
+      }
+      console.log(store.mode);
+      this.applyThemeSettings();
     }
   }
-  applyThemeSettings();
-}
 
-function applyThemeSettings(): void {
-  document.querySelectorAll(`[data-mode]`).forEach((el) => {
-    if (el instanceof HTMLElement) {
-      const prevTheme = el.dataset.mode as string;
-      const nextTheme = store.mode;
-      el.classList.remove(prevTheme);
-      el.classList.add(nextTheme);
-      el.dataset.mode = nextTheme;
-    }
-  });
+  applyThemeSettings(): IToggler {
+    const els = document.querySelectorAll('[data-mode]');
+    els.forEach((el) => {
+      if (el instanceof HTMLElement) {
+        const prevTheme = el.dataset.mode as string;
+        const nextTheme = store.mode;
+        el.classList.remove(prevTheme);
+        el.classList.add(nextTheme);
+        el.dataset.mode = nextTheme;
+      }
+    });
+    return this;
+  }
 }

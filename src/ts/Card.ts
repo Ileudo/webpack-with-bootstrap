@@ -1,5 +1,5 @@
 import { store } from '../store';
-import { ICardData } from '../utils/interfaces/interfaces';
+import { ICard, ICardData } from '../utils/interfaces/interfaces';
 
 export class Card {
   element: HTMLElement;
@@ -8,7 +8,7 @@ export class Card {
   ru: string;
   img: string;
   audio: string;
-  isFlipped = false;
+  isFlipped: boolean = false;
 
   constructor(cardData: ICardData) {
     this.en = cardData.en;
@@ -22,9 +22,7 @@ export class Card {
     this.card = document.createElement('div');
     this.card.classList.add('category__card-content');
     this.element.append(this.card);
-  }
 
-  render(): HTMLElement {
     this.card.innerHTML = `
     <div class="category__card-back">
       <span class="bi bi-music-note-beamed"></span>
@@ -46,14 +44,13 @@ export class Card {
     </div>
     <audio src="./assets/audio/${store.category}/${this.audio}"></audio>
     `;
-    this.subscribe();
-    return this.element;
   }
 
-  subscribe() {
+  subscribe(): ICard {
     this.card.addEventListener('click', this.flip);
     this.card.addEventListener('click', this.playAudio);
     this.card.addEventListener('mouseleave', this.flipBack);
+    return this;
   }
 
   flip(e: Event) {

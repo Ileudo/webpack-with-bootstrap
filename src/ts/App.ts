@@ -1,24 +1,25 @@
-import { ICardsField, IHeader } from '../utils/interfaces/interfaces';
+import { ICardsField, IHeader, IOffcanvas } from '../utils/interfaces/interfaces';
 import { CardsField } from './CardsField';
 import { Header } from './Header';
 import { Offcanvas } from './Offcanvas';
 
 export class App {
   container: HTMLBodyElement;
-  header: HTMLElement;
-  cardsField: HTMLElement;
-  offcanvas: HTMLElement;
+  header: IHeader;
+  cardsField: ICardsField;
+  offcanvas: IOffcanvas;
 
   constructor() {
     this.container = document.querySelector('body') as HTMLBodyElement;
-    this.cardsField = new CardsField().render();
-    this.header = new Header().render();
-    this.offcanvas = new Offcanvas().render();
+    this.header = new Header();
+    this.offcanvas = new Offcanvas();
+    this.cardsField = new CardsField();
   }
 
   render() {
-    this.container.append(this.header);
-    this.container.append(this.cardsField);
-    this.container.append(this.offcanvas);
+    this.container.append(this.header.element);
+    this.container.append(this.offcanvas.element);
+    this.container.append(this.cardsField.element);
+    this.cardsField.setCards().addCards();
   }
 }
