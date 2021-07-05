@@ -47,6 +47,8 @@ export interface ICardsField {
   getAudioList(): HTMLAudioElement[];
 }
 
+export type TStar = '+' | '-';
+
 export interface ICloseIcon {
   element: HTMLElement;
   target: string;

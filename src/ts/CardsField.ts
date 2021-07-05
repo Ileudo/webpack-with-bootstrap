@@ -1,6 +1,6 @@
 import data from '../data.json';
 import { store } from '../store';
-import { ICard, ICardData, ICardsField, ICategory } from '../utils/interfaces/interfaces';
+import { ICard, ICardData, ICardsField, ICategory, TStar } from '../utils/interfaces/interfaces';
 import { Card } from './Card';
 
 export class CardsField {
@@ -13,6 +13,8 @@ export class CardsField {
   categoryStars: HTMLDivElement;
   startGameBtn: HTMLButtonElement;
   repeatAudioBtn: HTMLButtonElement;
+  correctAnswerSound: HTMLAudioElement;
+  wrongAnswerSound: HTMLAudioElement;
 
   constructor() {
     this.element = document.createElement('section');
@@ -21,8 +23,6 @@ export class CardsField {
     this.element.innerHTML = `
     <div class="container-xxl">
       <div class="category__stars">
-        <span class="bi bi-star"></span>
-        <span class="bi bi-star-fill"></span>
       </div>
       <div class="row category__row"></div>
       <div class="category__controls">
@@ -33,6 +33,8 @@ export class CardsField {
         <span class="btn bi bi-arrow-clockwise"></span>
         </button>
       </div>
+      <audio id="correct-answer-sound" src="./assets/audio/correct-answer.mp3"></audio>
+      <audio id="wrong-answer-sound" src="./assets/audio/wrong-answer.mp3"></audio>
     </div>
     `;
 
@@ -40,13 +42,15 @@ export class CardsField {
     this.categoryStars = this.element.querySelector('.category__stars') as HTMLDivElement;
     this.startGameBtn = this.element.querySelector('.category__btn') as HTMLButtonElement;
     this.repeatAudioBtn = this.element.querySelector('.category__btn-repeat') as HTMLButtonElement;
+    this.correctAnswerSound = this.element.querySelector('#correct-answer-sound') as HTMLAudioElement;
+    this.wrongAnswerSound = this.element.querySelector('#wrong-answer-sound') as HTMLAudioElement;
   }
 
   init(): ICardsField {
     this.setCards();
     this.addCards();
     this.getAudioList();
-    this.startGame();
+    this.listenGameStart();
     return this;
   }
 
@@ -66,21 +70,22 @@ export class CardsField {
     return this.audioList;
   }
 
-  startGame() {
+  listenGameStart() {
     this.startGameBtn.addEventListener('click', () => {
       this.element.classList.add('game');
       this.shuffleAudioList();
       this.playAudio();
+      this.listenRepeatWord();
       this.checkAnswer();
     });
   }
 
   shuffleAudioList() {
     this.audioList.sort(() => Math.random() - 0.5);
-    console.log(this.audioList);
   }
 
   playAudio() {
+    this.audioList[this.audioList.length - 1].currentTime = 0;
     this.audioList[this.audioList.length - 1].play();
     this.guessedCard = this.audioList[this.audioList.length - 1].closest('.category__card') as HTMLElement;
   }
@@ -90,14 +95,32 @@ export class CardsField {
       if (e.target instanceof HTMLElement && e.target.closest('.category__card')) {
         this.chosenCard = e.target.closest('.category__card') as HTMLElement;
         if (this.guessedCard === this.chosenCard) {
+          this.correctAnswerSound.currentTime = 0;
+          this.correctAnswerSound.play();
           this.chosenCard.classList.add('inactive');
           this.audioList.pop();
+          this.addStar('+');
           this.playAudio();
         } else {
-          console.log('Wrong Answer');
+          this.wrongAnswerSound.currentTime = 0;
+          this.wrongAnswerSound.play();
+          this.addStar('-');
+          console.log('wrong Answer');
         }
       }
     });
+  }
+
+  listenRepeatWord() {
+    this.repeatAudioBtn.addEventListener('click', () => {
+      this.audioList[this.audioList.length - 1].currentTime = 0;
+      this.audioList[this.audioList.length - 1].play();
+    });
+  }
+
+  addStar(type: TStar) {
+    if (type === '+') this.categoryStars.insertAdjacentHTML('beforeend', '<span class="bi bi-star-fill"></span>');
+    if (type === '-') this.categoryStars.insertAdjacentHTML('beforeend', '<span class="bi bi-star"></span>');
   }
 
   clearGame() {
