@@ -17,6 +17,7 @@ export class App {
     this.container.append(this.header.element);
     this.header.init();
     this.container.append(this.cardsField.element);
-    this.cardsField.setCards().addCards();
+    this.cardsField.init();
+    this.cardsField.getAudioList();
   }
 }

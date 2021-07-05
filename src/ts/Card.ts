@@ -46,14 +46,14 @@ export class Card {
     `;
   }
 
-  subscribe(): ICard {
+  init(): ICard {
     this.card.addEventListener('click', this.flip);
     this.card.addEventListener('click', this.playAudio);
     this.card.addEventListener('mouseleave', this.flipBack);
     return this;
   }
 
-  flip(e: Event) {
+  private flip(e: Event) {
     if (
       e.target instanceof HTMLElement &&
       e.currentTarget instanceof HTMLElement &&
@@ -66,18 +66,19 @@ export class Card {
     }
   }
 
-  flipBack(e: Event) {
+  private flipBack(e: Event) {
     if (e.currentTarget instanceof HTMLElement && e.currentTarget.classList.contains('flipped') && this.isFlipped) {
       e.currentTarget.classList.remove('flipped');
       this.isFlipped = false;
     }
   }
 
-  playAudio(e: Event) {
+  private playAudio(e: Event) {
     if (
       e.target instanceof HTMLElement &&
       e.currentTarget instanceof HTMLElement &&
-      !e.target.classList.contains('bi-arrow-repeat')
+      !e.target.classList.contains('bi-arrow-repeat') &&
+      store.mode === 'train'
     ) {
       const audio = e.currentTarget.querySelector(`audio`) as HTMLAudioElement;
       audio.currentTime = 0;

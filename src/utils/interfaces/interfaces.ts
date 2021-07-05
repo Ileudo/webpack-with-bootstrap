@@ -18,7 +18,7 @@ export interface ICard {
   img: string;
   audio: string;
   isFlipped: boolean;
-  subscribe(): ICard;
+  init(): ICard;
 }
 
 export interface ICardData {
@@ -38,9 +38,13 @@ export interface IToggler {
 export interface ICardsField {
   element: HTMLElement;
   cards: ICard[];
-  categoryRow: HTMLElement;
+  categoryRow: HTMLDivElement;
+  categoryStars: HTMLDivElement;
+  startGameBtn: HTMLButtonElement;
+  init(): ICardsField;
   setCards(): ICardsField;
   addCards(): ICardsField;
+  getAudioList(): HTMLAudioElement[];
 }
 
 export interface ICloseIcon {

@@ -37,7 +37,11 @@ export class CloseIcon {
     });
 
     this.overlayElement.addEventListener('click', (e: Event) => {
-      if (e.target instanceof HTMLElement && !e.target.closest(this.target)) {
+      if (
+        e.target instanceof HTMLElement &&
+        !e.target.closest(this.target) &&
+        this.targetElement.classList.contains('show')
+      ) {
         this.element.classList.toggle('open');
         this.targetElement.classList.toggle(this.togglingClass);
       }
