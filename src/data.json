@@ -2,6 +2,7 @@
   "categories": [
     {
       "name": "Action1",
+      "img": "hug.jpg",
       "cards": [
         {
           "en": "cry",
@@ -55,6 +56,7 @@
     },
     {
       "name": "Action2",
+      "img": "sing.jpg",
       "cards": [
         {
           "en": "open",
@@ -108,6 +110,7 @@
     },
     {
       "name": "Action3",
+      "img": "argue.jpg",
       "cards": [
         {
           "en": "argue",
@@ -161,6 +164,7 @@
     },
     {
       "name": "Adjective",
+      "img": "big.jpg",
       "cards": [
         {
           "en": "big",
@@ -214,6 +218,7 @@
     },
     {
       "name": "Animal1",
+      "img": "cat.jpg",
       "cards": [
         {
           "en": "cat",
@@ -267,6 +272,7 @@
     },
     {
       "name": "Animal2",
+      "img": "mouse.jpg",
       "cards": [
         {
           "en": "bird",
@@ -320,6 +326,7 @@
     },
     {
       "name": "Clothes",
+      "img": "coat.jpg",
       "cards": [
         {
           "en": "blouse",
@@ -373,6 +380,7 @@
     },
     {
       "name": "Emotions",
+      "img": "surprised.jpg",
       "cards": [
         {
           "en": "angry",

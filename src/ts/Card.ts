@@ -1,3 +1,4 @@
+import '../scss/category-card.scss';
 import { store } from '../store';
 import { ICard, ICardData } from '../utils/interfaces/interfaces';
 

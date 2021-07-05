@@ -1,3 +1,5 @@
+@import 'custom.scss';
+
 .categories__row {
   margin-bottom: 2rem;
 }
@@ -6,13 +8,13 @@
   user-select: none;
 }
 
-.categories__card {
+.categories__card-content {
   width: 100%;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transition: all 0.5s;
 }
 
-.categories__card:hover {
+.categories__card-content:hover {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   transform: translateY(-0.5rem);
 }
@@ -30,12 +32,19 @@
 
 .categories__card-avatar {
   width: 8em;
+  height: 8em;
   margin-top: -4em;
   overflow: hidden;
   border: 0.25em solid #fff;
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.categories__card-avatar img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .categories__card-body {

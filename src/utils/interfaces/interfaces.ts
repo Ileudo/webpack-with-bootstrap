@@ -1,5 +1,6 @@
 export interface ICategory {
   name: string;
+  img: string;
   cards: [
     {
       en: string;
@@ -45,6 +46,20 @@ export interface ICardsField {
   setCards(): ICardsField;
   addCards(): ICardsField;
   getAudioList(): HTMLAudioElement[];
+}
+
+export interface ICatField {
+  element: HTMLElement;
+  categoriesRow: HTMLDivElement;
+  cards: ICatCard[];
+  init(): ICatField;
+  setCards(): ICatField;
+  addCards(): ICatField;
+}
+
+export interface ICatCard {
+  element: HTMLAnchorElement;
+  card: HTMLDivElement;
 }
 
 export type TStar = '+' | '-';
