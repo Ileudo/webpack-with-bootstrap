@@ -15,6 +15,7 @@ export class App {
 
   render() {
     this.container.append(this.header.element);
+    this.header.init();
     this.container.append(this.cardsField.element);
     this.cardsField.setCards().addCards();
   }

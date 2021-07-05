@@ -3,11 +3,13 @@ import { ICloseIcon } from '../utils/interfaces/interfaces';
 
 export class CloseIcon {
   element: HTMLElement;
-  targetElement: HTMLElement;
+  target: string;
   togglingClass: string;
-  overlay: HTMLElement;
+  overlay: string;
+  targetElement!: HTMLElement;
+  overlayElement!: HTMLElement;
 
-  constructor(targetElement: HTMLElement, togglingClass: string, overlay: string) {
+  constructor(targetElement: string, togglingClass: string, overlay: string) {
     this.element = document.createElement('button');
     this.element.classList.add('close-icon');
     this.element.setAttribute('type', 'button');
@@ -17,11 +19,14 @@ export class CloseIcon {
     <span></span>`;
 
     this.togglingClass = togglingClass;
-    this.overlay = document.querySelector(overlay) as HTMLElement;
-    this.targetElement = targetElement;
+    this.overlay = overlay;
+    this.target = targetElement;
   }
 
   init(): ICloseIcon {
+    this.overlayElement = document.querySelector(this.overlay) as HTMLElement;
+    this.targetElement = document.querySelector(this.target) as HTMLElement;
+
     this.element.addEventListener('click', (e: Event) => {
       this.element.classList.toggle('open');
     });
@@ -31,29 +36,12 @@ export class CloseIcon {
       this.targetElement.classList.toggle(this.togglingClass);
     });
 
-    this.overlay.addEventListener('click', (e: Event) => {
-      const targetID = `#${this.targetElement.id}`;
-      if (e.target instanceof HTMLElement && !e.target.closest(targetID)) {
+    this.overlayElement.addEventListener('click', (e: Event) => {
+      if (e.target instanceof HTMLElement && !e.target.closest(this.target)) {
         this.element.classList.toggle('open');
         this.targetElement.classList.toggle(this.togglingClass);
       }
     });
     return this;
   }
-
-  // addToggleCloseIconListener(e: Event): void {
-  //   if (e.currentTarget instanceof HTMLButtonElement) {
-  //     e.stopPropagation();
-  //     e.currentTarget.classList.toggle('open');
-  //   }
-  // }
-
-  // addToggleOffcanvasListener(e: Event): void {
-  //   e.stopPropagation();
-  //   if (e.currentTarget instanceof HTMLButtonElement) {
-  //     const targetId = e.currentTarget.dataset.target as string;
-  //     const target = document.getElementById(targetId) as HTMLElement;
-  //     target.classList.toggle('show');
-  //   }
-  // }
 }

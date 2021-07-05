@@ -22,8 +22,9 @@ export class Toggler implements IToggler {
   init(): IToggler {
     const checkbox = this.element.querySelector('input') as HTMLInputElement;
     checkbox.addEventListener('change', () => {
-      console.log(this.togglingClass);
       this.targetElement.classList.toggle(this.togglingClass);
+      this.targetElement.classList.contains('play') ? (store.mode = 'play') : (store.mode = 'train');
+      console.log(store.mode);
     });
     return this;
   }

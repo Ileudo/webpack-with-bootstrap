@@ -13,9 +13,10 @@ export class Offcanvas {
 
     this.list = document.createElement('ul');
     this.list.classList.add('offcanvas__list');
+    this.element.append(this.list);
+
     this.list.innerHTML = `
     <li><a href="#" class="offcanvas__link">Main Page</a></li>`;
-    this.element.append(this.list);
 
     const categories: string[] = data.categories.map((category: ICategory) => category.name);
     categories.map((name) => {

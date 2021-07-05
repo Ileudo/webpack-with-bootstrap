@@ -1,4 +1,4 @@
-import { ICloseIcon, IOffcanvas, IToggler } from '../utils/interfaces/interfaces';
+import { ICloseIcon, IHeader, IOffcanvas, IToggler } from '../utils/interfaces/interfaces';
 import { Offcanvas } from './Offcanvas';
 import { CloseIcon } from './CloseIcon';
 import { Toggler } from './Toggler';
@@ -20,16 +20,18 @@ export class Header {
     </div>`;
 
     this.headerRow = this.element.querySelector('.header__row') as HTMLDivElement;
-
     this.offcanvas = new Offcanvas();
-    this.headerRow.append(this.offcanvas.element);
+    this.closeIcon = new CloseIcon('#offcanvas', 'show', 'body');
+    this.toggler = new Toggler('html', 'play');
+  }
 
-    this.closeIcon = new CloseIcon(this.offcanvas.element, 'show', 'body');
+  init(): IHeader {
+    this.headerRow.append(this.offcanvas.element);
     this.headerRow.append(this.closeIcon.element);
     this.closeIcon.init();
-
-    this.toggler = new Toggler('html', 'play');
     this.headerRow.append(this.toggler.element);
     this.toggler.init();
+
+    return this;
   }
 }

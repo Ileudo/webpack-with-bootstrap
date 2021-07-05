@@ -45,8 +45,11 @@ export interface ICardsField {
 
 export interface ICloseIcon {
   element: HTMLElement;
-  targetElement: HTMLElement;
+  target: string;
   togglingClass: string;
+  overlay: string;
+  targetElement: HTMLElement;
+  overlayElement: HTMLElement;
   init(): ICloseIcon;
 }
 
@@ -56,4 +59,5 @@ export interface IOffcanvas {
 
 export interface IHeader {
   element: HTMLElement;
+  init(): IHeader;
 }
