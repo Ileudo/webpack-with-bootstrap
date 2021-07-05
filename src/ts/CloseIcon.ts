@@ -5,8 +5,9 @@ export class CloseIcon {
   element: HTMLElement;
   targetElement: HTMLElement;
   togglingClass: string;
+  overlay: HTMLElement;
 
-  constructor(targetElement: HTMLElement, togglingClass: string) {
+  constructor(targetElement: HTMLElement, togglingClass: string, overlay: string) {
     this.element = document.createElement('button');
     this.element.classList.add('close-icon');
     this.element.setAttribute('type', 'button');
@@ -15,8 +16,9 @@ export class CloseIcon {
     <span></span>
     <span></span>`;
 
-    this.targetElement = targetElement;
     this.togglingClass = togglingClass;
+    this.overlay = document.querySelector(overlay) as HTMLElement;
+    this.targetElement = targetElement;
   }
 
   init(): ICloseIcon {
@@ -24,10 +26,18 @@ export class CloseIcon {
       this.element.classList.toggle('open');
     });
 
-    this.element.addEventListener('click', () => {
+    this.element.addEventListener('click', (e: Event) => {
+      e.stopPropagation();
       this.targetElement.classList.toggle(this.togglingClass);
     });
 
+    this.overlay.addEventListener('click', (e: Event) => {
+      const targetID = `#${this.targetElement.id}`;
+      if (e.target instanceof HTMLElement && !e.target.closest(targetID)) {
+        this.element.classList.toggle('open');
+        this.targetElement.classList.toggle(this.togglingClass);
+      }
+    });
     return this;
   }
 

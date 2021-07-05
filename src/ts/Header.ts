@@ -20,10 +20,11 @@ export class Header {
     </div>`;
 
     this.headerRow = this.element.querySelector('.header__row') as HTMLDivElement;
+
     this.offcanvas = new Offcanvas();
     this.headerRow.append(this.offcanvas.element);
 
-    this.closeIcon = new CloseIcon(this.offcanvas.element, 'show');
+    this.closeIcon = new CloseIcon(this.offcanvas.element, 'show', 'body');
     this.headerRow.append(this.closeIcon.element);
     this.closeIcon.init();
 
