@@ -10,6 +10,11 @@
   background-clip: padding-box;
   outline: 0;
   transition: all 0.3s;
+  background: $green-gradient;
+}
+
+.play .offcanvas {
+  background: $orange-gradient;
 }
 
 .offcanvas.show {
@@ -39,23 +44,23 @@
   padding: 0.5em 1em;
 }
 
-.offcanvas__list > li.mode-train,
-.offcanvas__list > li.mode-play {
+.offcanvas__list > li,
+.play .offcanvas__list > li {
   background: transparent;
 }
-.offcanvas__list > li.mode-train:hover {
+.offcanvas__list > li:hover {
   background: $green-gradient-darker;
   cursor: pointer;
 }
-.offcanvas__list > li.mode-train:active {
+.offcanvas__list > li:active {
   background: $green-gradient-darker-reverse;
 }
 
-.offcanvas__list > li.mode-play:hover {
+.play .offcanvas__list > li:hover {
   background: $orange-gradient-darker;
   cursor: pointer;
 }
-.offcanvas__list > li.mode-play:active {
+.play .offcanvas__list > li:active {
   background: $orange-gradient-darker-reverse;
 }
 

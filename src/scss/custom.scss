@@ -10,10 +10,3 @@ $orange-gradient-darker-reverse: linear-gradient(40deg, darken(#fc6262, 5%), dar
 .row {
   --bs-gutter-y: 1.5rem;
 }
-
-.mode-train {
-  background: linear-gradient(40deg, #00bf82, #0099ae);
-}
-.mode-play {
-  background: linear-gradient(40deg, #ffd86f, #fc6262);
-}

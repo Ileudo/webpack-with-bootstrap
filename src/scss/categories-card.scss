@@ -21,6 +21,11 @@
   height: 6em;
   border-top-left-radius: 0.25em;
   border-top-right-radius: 0.25em;
+  background: $green-gradient;
+}
+
+.play .categories__card-up {
+  background: $orange-gradient;
 }
 
 .categories__card-avatar {

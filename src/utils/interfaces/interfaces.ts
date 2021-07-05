@@ -29,10 +29,10 @@ export interface ICardData {
 }
 
 export interface IToggler {
-  element: HTMLElement;
-  subscribe(): IToggler;
-  changeThemeSettings(e: Event): void;
-  applyThemeSettings(): IToggler;
+  element: HTMLLabelElement;
+  togglingClass: string;
+  targetElement: HTMLElement;
+  init(): IToggler;
 }
 
 export interface ICardsField {
@@ -45,9 +45,9 @@ export interface ICardsField {
 
 export interface ICloseIcon {
   element: HTMLElement;
-  subscribe(): ICloseIcon;
-  addToggleCloseIconListener(e: Event): void;
-  addToggleOffcanvasListener(e: Event): void;
+  targetElement: HTMLElement;
+  togglingClass: string;
+  init(): ICloseIcon;
 }
 
 export interface IOffcanvas {

@@ -22,22 +22,3 @@ section {
   justify-content: space-between;
   align-items: center;
 }
-
-.bg-indigo {
-  background-color: $indigo !important;
-}
-
-.blue-gradient {
-  background: linear-gradient(40deg, $blue-500, $blue-700);
-  background-image: linear-gradient(40deg, $blue-500, $blue-700);
-}
-
-.orange-gradient {
-  background: linear-gradient(40deg, $orange-500, $orange-700);
-  background-image: linear-gradient(40deg, $orange-500, $orange-700);
-}
-
-.indigo-gradient {
-  background: linear-gradient(40deg, $indigo-500, $gray-700);
-  background-image: linear-gradient(40deg, $indigo-500, $gray-700);
-}

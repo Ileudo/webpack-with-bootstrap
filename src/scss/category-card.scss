@@ -132,10 +132,10 @@
   transition: 0.3s;
 }
 
-.category__btn.mode-train {
+.category__btn {
   display: none;
 }
 
-.category__btn.mode-play {
+.play .category__btn {
   display: inline-block;
 }
