@@ -2,6 +2,8 @@ import data from '../data.json';
 import { store } from '../store';
 import { ICard, ICardData, ICardsField, ICategory, TStar } from '../utils/interfaces/interfaces';
 import { Card } from './Card';
+import { ModalLoose } from './ModalLoose';
+import { ModalWin } from './ModalWin';
 
 export class CardsField {
   element: HTMLElement;
@@ -15,6 +17,7 @@ export class CardsField {
   repeatAudioBtn: HTMLButtonElement;
   correctAnswerSound: HTMLAudioElement;
   wrongAnswerSound: HTMLAudioElement;
+  wrongAnswerCount: number = 0;
 
   constructor() {
     this.element = document.createElement('section');
@@ -72,8 +75,10 @@ export class CardsField {
 
   listenGameStart(): ICardsField {
     this.startGameBtn.onclick = () => {
+      store.gameState = 'started';
       this.element.classList.add('game');
       this.shuffleAudioList();
+      this.setGuessedCard();
       this.playAudio();
       this.listenRepeatWord();
       this.checkAnswer();
@@ -89,30 +94,43 @@ export class CardsField {
   playAudio(): ICardsField {
     this.audioList[this.audioList.length - 1].currentTime = 0;
     this.audioList[this.audioList.length - 1].play();
-    this.guessedCard = this.audioList[this.audioList.length - 1].closest('.category__card') as HTMLElement;
     return this;
+  }
+
+  setGuessedCard() {
+    this.guessedCard = this.audioList[this.audioList.length - 1].closest('.category__card') as HTMLElement;
   }
 
   checkAnswer(): ICardsField {
     this.element.onclick = (e: Event) => {
-      if (e.target instanceof HTMLElement && e.target.closest('.category__card')) {
+      if (e.target instanceof HTMLElement && e.target.closest('.category__card') && store.gameState === 'started') {
         this.chosenCard = e.target.closest('.category__card') as HTMLElement;
-        console.log(this.chosenCard);
-        console.log(this.guessedCard);
         if (this.guessedCard === this.chosenCard) {
           this.correctAnswerSound.currentTime = 0;
           this.correctAnswerSound.play();
           this.chosenCard.classList.add('inactive');
-          this.audioList.pop();
           this.addStar('+');
-          this.playAudio();
+          this.audioList.pop();
+          this.isGameFinished();
         } else {
           this.wrongAnswerSound.currentTime = 0;
           this.wrongAnswerSound.play();
+          this.wrongAnswerCount++;
           this.addStar('-');
         }
       }
-    }; // КОСТЫЛИ
+    }; // ONCLICK-КОСТЫЛИ
+    return this;
+  }
+
+  isGameFinished(): ICardsField {
+    if (this.audioList.length !== 0) {
+      this.setGuessedCard();
+      setTimeout(() => this.playAudio(), 1000);
+    } else {
+      this.finishGame();
+      store.gameState = 'notStarted';
+    }
     return this;
   }
 
@@ -128,6 +146,26 @@ export class CardsField {
     if (type === '+') this.categoryStars.insertAdjacentHTML('beforeend', '<span class="bi bi-star-fill"></span>');
     if (type === '-') this.categoryStars.insertAdjacentHTML('beforeend', '<span class="bi bi-star"></span>');
     return this;
+  }
+
+  finishGame() {
+    if (this.wrongAnswerCount > 0) {
+      const modalLoose = new ModalLoose(this.wrongAnswerCount);
+      this.element.append(modalLoose.element);
+      modalLoose.audio.play();
+      setTimeout(() => {
+        modalLoose.element.remove();
+        this.clear().init();
+      }, 5000);
+    } else {
+      const modalWin = new ModalWin();
+      this.element.append(modalWin.element);
+      modalWin.audio.play();
+      setTimeout(() => {
+        modalWin.element.remove();
+        this.clear().init();
+      }, 6000);
+    }
   }
 
   clear(): ICardsField {

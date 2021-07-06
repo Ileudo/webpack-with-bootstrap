@@ -56,6 +56,7 @@ export interface ICardsField {
   shuffleAudioList(): ICardsField;
   playAudio(): ICardsField;
   checkAnswer(): ICardsField;
+  isGameFinished(): ICardsField;
   listenRepeatWord(): ICardsField;
   addStar(type: TStar): ICardsField;
   clear(): ICardsField;

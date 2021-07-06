@@ -8,12 +8,13 @@
 
 body {
   line-height: 1.25rem;
+  user-select: none;
 }
 section {
-  padding: 5rem 0;
+  padding: 0.5rem 0;
 }
 .header {
-  padding: 2rem;
+  padding: 0.5rem;
 }
 
 .header__row {

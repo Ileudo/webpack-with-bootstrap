@@ -38,10 +38,10 @@ export class Offcanvas {
   saveCategory() {
     this.catLinks.forEach((link) => {
       link.addEventListener('click', (e: Event) => {
-        window.location.hash = '#card';
-        window.location.hash = '#cards'; // КОСТЫЛИ
+        const randomHashToInitHashChange = '#card'; // КОСТЫЛИ
+        window.location.hash = randomHashToInitHashChange;
+        window.location.hash = '#cards';
         store.category = link.dataset.cat as string;
-        console.log(store.category);
       });
     });
   }
