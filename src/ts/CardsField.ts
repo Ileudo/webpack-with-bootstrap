@@ -70,30 +70,35 @@ export class CardsField {
     return this.audioList;
   }
 
-  listenGameStart() {
-    this.startGameBtn.addEventListener('click', () => {
+  listenGameStart(): ICardsField {
+    this.startGameBtn.onclick = () => {
       this.element.classList.add('game');
       this.shuffleAudioList();
       this.playAudio();
       this.listenRepeatWord();
       this.checkAnswer();
-    });
+    }; // КОСТЫЛИ
+    return this;
   }
 
-  shuffleAudioList() {
+  shuffleAudioList(): ICardsField {
     this.audioList.sort(() => Math.random() - 0.5);
+    return this;
   }
 
-  playAudio() {
+  playAudio(): ICardsField {
     this.audioList[this.audioList.length - 1].currentTime = 0;
     this.audioList[this.audioList.length - 1].play();
     this.guessedCard = this.audioList[this.audioList.length - 1].closest('.category__card') as HTMLElement;
+    return this;
   }
 
-  checkAnswer() {
-    this.element.addEventListener('click', (e: Event) => {
+  checkAnswer(): ICardsField {
+    this.element.onclick = (e: Event) => {
       if (e.target instanceof HTMLElement && e.target.closest('.category__card')) {
         this.chosenCard = e.target.closest('.category__card') as HTMLElement;
+        console.log(this.chosenCard);
+        console.log(this.guessedCard);
         if (this.guessedCard === this.chosenCard) {
           this.correctAnswerSound.currentTime = 0;
           this.correctAnswerSound.play();
@@ -105,25 +110,32 @@ export class CardsField {
           this.wrongAnswerSound.currentTime = 0;
           this.wrongAnswerSound.play();
           this.addStar('-');
-          console.log('wrong Answer');
         }
       }
-    });
+    }; // КОСТЫЛИ
+    return this;
   }
 
-  listenRepeatWord() {
+  listenRepeatWord(): ICardsField {
     this.repeatAudioBtn.addEventListener('click', () => {
       this.audioList[this.audioList.length - 1].currentTime = 0;
       this.audioList[this.audioList.length - 1].play();
     });
+    return this;
   }
 
-  addStar(type: TStar) {
+  addStar(type: TStar): ICardsField {
     if (type === '+') this.categoryStars.insertAdjacentHTML('beforeend', '<span class="bi bi-star-fill"></span>');
     if (type === '-') this.categoryStars.insertAdjacentHTML('beforeend', '<span class="bi bi-star"></span>');
+    return this;
   }
 
-  clearGame() {
+  clear(): ICardsField {
+    this.categoryRow.innerHTML = '';
+    this.categoryStars.innerHTML = '';
+    this.cards = [];
+    this.audioList = [];
     this.element.classList.remove('game');
+    return this;
   }
 }

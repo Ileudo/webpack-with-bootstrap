@@ -37,4 +37,10 @@ export class CatField {
     this.cards.map((card) => this.categoriesRow.append(card.element));
     return this;
   }
+
+  clear(): ICatField {
+    this.cards = [];
+    this.categoriesRow.innerHTML = '';
+    return this;
+  }
 }

@@ -1,3 +1,4 @@
+import { store } from '../store';
 import { ICatCard } from '../utils/interfaces/interfaces';
 
 export class CatCard {
@@ -8,6 +9,7 @@ export class CatCard {
     this.element = document.createElement('a');
     this.element.classList.add('categories__card', 'col-sm-6', 'col-lg-4', 'col-xl-3');
     this.element.setAttribute('href', '#cards');
+    this.element.setAttribute('data-cat', `${name}`);
 
     this.card = document.createElement('div');
     this.card.classList.add('categories__card-content');
@@ -25,6 +27,14 @@ export class CatCard {
   }
 
   init(): ICatCard {
+    this.saveCategory();
     return this;
+  }
+
+  saveCategory() {
+    this.element.addEventListener('click', (e: Event) => {
+      store.category = this.element.dataset.cat as string;
+      console.log(store.category);
+    });
   }
 }

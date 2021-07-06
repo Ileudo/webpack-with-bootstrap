@@ -39,13 +39,26 @@ export interface IToggler {
 export interface ICardsField {
   element: HTMLElement;
   cards: ICard[];
+  audioList: HTMLAudioElement[];
+  guessedCard?: HTMLElement;
+  chosenCard?: HTMLElement;
   categoryRow: HTMLDivElement;
   categoryStars: HTMLDivElement;
   startGameBtn: HTMLButtonElement;
+  repeatAudioBtn: HTMLButtonElement;
+  correctAnswerSound: HTMLAudioElement;
+  wrongAnswerSound: HTMLAudioElement;
   init(): ICardsField;
   setCards(): ICardsField;
   addCards(): ICardsField;
   getAudioList(): HTMLAudioElement[];
+  listenGameStart(): ICardsField;
+  shuffleAudioList(): ICardsField;
+  playAudio(): ICardsField;
+  checkAnswer(): ICardsField;
+  listenRepeatWord(): ICardsField;
+  addStar(type: TStar): ICardsField;
+  clear(): ICardsField;
 }
 
 export interface ICatField {
@@ -55,6 +68,7 @@ export interface ICatField {
   init(): ICatField;
   setCards(): ICatField;
   addCards(): ICatField;
+  clear(): ICatField;
 }
 
 export interface ICatCard {
@@ -76,6 +90,7 @@ export interface ICloseIcon {
 
 export interface IOffcanvas {
   element: HTMLElement;
+  init(): IOffcanvas;
 }
 
 export interface IHeader {

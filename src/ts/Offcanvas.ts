@@ -1,10 +1,12 @@
 import '../scss/offcanvas.scss';
 import data from '../data.json';
-import { ICategory } from '../utils/interfaces/interfaces';
+import { ICategory, IOffcanvas } from '../utils/interfaces/interfaces';
+import { store } from '../store';
 
 export class Offcanvas {
   element: HTMLElement;
   list: HTMLUListElement;
+  catLinks: NodeListOf<HTMLAnchorElement>;
 
   constructor() {
     this.element = document.createElement('aside');
@@ -21,8 +23,26 @@ export class Offcanvas {
     const categories: string[] = data.categories.map((category: ICategory) => category.name);
     categories.map((name) => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="#cards" class="offcanvas__link">${name}</a>`;
+      li.innerHTML = `<a href="#cards" class="offcanvas__link" data-cat="${name}">${name}</a>`;
       this.list.append(li);
+    });
+
+    this.catLinks = this.element.querySelectorAll('[data-cat]');
+  }
+
+  init(): IOffcanvas {
+    this.saveCategory();
+    return this;
+  }
+
+  saveCategory() {
+    this.catLinks.forEach((link) => {
+      link.addEventListener('click', (e: Event) => {
+        window.location.hash = '#card';
+        window.location.hash = '#cards'; // КОСТЫЛИ
+        store.category = link.dataset.cat as string;
+        console.log(store.category);
+      });
     });
   }
 }

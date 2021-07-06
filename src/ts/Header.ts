@@ -27,6 +27,7 @@ export class Header {
 
   init(): IHeader {
     this.headerRow.append(this.offcanvas.element);
+    this.offcanvas.init();
     this.headerRow.append(this.closeIcon.element);
     this.closeIcon.init();
     this.headerRow.append(this.toggler.element);

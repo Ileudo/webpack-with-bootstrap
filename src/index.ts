@@ -3,4 +3,4 @@ import './scss/styles.scss';
 import { App } from './ts/App';
 
 const app = new App();
-app.render();
+app.init();
